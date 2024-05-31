@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 0;
+  background: linear-gradient(#000000, #151515);
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+body:after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(90deg, #666 10%, #c0c0c0);
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 120px);
+  border-radius: 0 0 100% 100%;
+}
+canvas {
+  max-width: 100vw;
+  transform: translate3d(0, 0, 100px);
+  z-index: 3;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+}
+.tesla-coil__head {
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  background: radial-gradient(circle at 60% 40%, #c0c0c0 50%, #000), #c0c0c0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translate3d(0, 0, 100px);
+  z-index: 3;
+  perspective: 350px;
+  transform-style: preserve-3d;
+}
+.tesla-coil__head--active {
+  box-shadow: 0 0 50px 10px #0f2e44;
+}
+.tesla-coil__body {
+  height: 180px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  background: linear-gradient(90deg, #666 10%, #c0c0c0);
+  transform: translate(-50%, 0) rotateX(-30deg);
+  position: absolute;
+  perspective: 350px;
+  transform-style: preserve-3d;
+}
+.tesla-coil__ring {
+  content: '';
+  height: calc(var(--size) * 1px);
+  width: calc(var(--size) * 1px);
+  border-radius: 100%;
+  border: 15px solid #555;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0) rotateX(90deg);
+}
+.tesla-coil__ring:nth-of-type(1) {
+  --size: 60;
+  top: 10%;
+}
+.tesla-coil__ring:nth-of-type(2) {
+  --size: 70;
+  top: 20%;
+}
+.tesla-coil__ring:nth-of-type(3) {
+  --size: 80;
+  top: 30%;
+}
+.tesla-coil__base {
+  height: 60px;
+  transform-style: preserve-3d;
+  width: 60px;
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(35deg);
+}
+.tesla-coil__base div {
+  background-color: #c0c0c0;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.tesla-coil__base div:nth-of-type(1) {
+  background: #333;
+  transform: rotateY(270deg) translateX(-50%);
+  transform-origin: center left;
+}
+.tesla-coil__base div:nth-of-type(2) {
+  transform: rotateX(90deg) translateY(-50%);
+  transform-origin: top center;
+}
+.tesla-coil__base div:nth-of-type(3) {
+  background: #666;
+  transform: translateZ(30px);
+}
